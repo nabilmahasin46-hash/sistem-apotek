@@ -1,0 +1,8 @@
+{
+  "name": "Sistem Informasi Stok Obat",
+  "description": "Sistem Informasi Penyimpanan dan Stok Obat Apotek dengan notifikasi stok menipis, log transaksi, dan panduan arsitektur lengkap.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

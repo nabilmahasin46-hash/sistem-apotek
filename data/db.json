@@ -1,0 +1,220 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "username": "apoteker",
+      "nama": "Apt. Naura Almira, S.Farm.",
+      "role": "Apoteker"
+    },
+    {
+      "id": "u2",
+      "username": "gudang",
+      "nama": "Budi Santoso",
+      "role": "Petugas Gudang"
+    },
+    {
+      "id": "u3",
+      "username": "admin",
+      "nama": "Drs. Hendrawan, M.Si.",
+      "role": "Admin"
+    }
+  ],
+  "obat": [
+    {
+      "id": "ob-1",
+      "kodeObat": "PO-001",
+      "nama": "Paracetamol 500mg",
+      "produsen": "Kimia Farma",
+      "jumlah": 150,
+      "satuan": "Tablet",
+      "tanggalExpired": "2028-04-12",
+      "rakPenyimpanan": "Rak A-2 (Analgesik)",
+      "deskripsi": "Obat penurun demam dan pereda nyeri kepala ringan.",
+      "createdAt": "2026-01-15T08:30:00Z",
+      "updatedAt": "2026-01-15T08:30:00Z"
+    },
+    {
+      "id": "ob-2",
+      "kodeObat": "PO-002",
+      "nama": "Amoxicillin 500mg",
+      "produsen": "Kalbe Farma",
+      "jumlah": 2,
+      "satuan": "Tablet",
+      "tanggalExpired": "2027-11-20",
+      "rakPenyimpanan": "Rak B-1 (Antibiotik)",
+      "deskripsi": "Antibiotik golongan penisilin untuk infeksi bakteri.",
+      "createdAt": "2026-01-18T09:12:00Z",
+      "updatedAt": "2026-06-02T14:15:35.887Z"
+    },
+    {
+      "id": "ob-3",
+      "kodeObat": "PO-003",
+      "nama": "Sanmol Syrup 60ml",
+      "produsen": "Sanbe Farma",
+      "jumlah": 25,
+      "satuan": "Botol",
+      "tanggalExpired": "2026-07-15",
+      "rakPenyimpanan": "Rak A-4 (Sirup Anak)",
+      "deskripsi": "Paracetamol sirup untuk anak-anak.",
+      "createdAt": "2026-02-05T14:20:00Z",
+      "updatedAt": "2026-02-05T14:20:00Z"
+    },
+    {
+      "id": "ob-4",
+      "kodeObat": "PO-004",
+      "nama": "OBH Combi Batuk Berdahak",
+      "produsen": "Combiphar",
+      "jumlah": 2,
+      "satuan": "Botol",
+      "tanggalExpired": "2026-08-01",
+      "rakPenyimpanan": "Rak C-3 (Batuk & Pilek)",
+      "deskripsi": "Sirup pereda batuk disertai dahak.",
+      "createdAt": "2026-02-10T10:05:00Z",
+      "updatedAt": "2026-04-20T15:30:00Z"
+    },
+    {
+      "id": "ob-5",
+      "kodeObat": "PO-005",
+      "nama": "Dexteem Plus",
+      "produsen": "Erlimpex",
+      "jumlah": 120,
+      "satuan": "Tablet",
+      "tanggalExpired": "2026-06-15",
+      "rakPenyimpanan": "Rak D-2 (Antihistamin)",
+      "deskripsi": "Digunakan untuk kasus alergi parah disertai inflamasi.",
+      "createdAt": "2026-02-12T11:45:00Z",
+      "updatedAt": "2026-02-12T11:45:00Z"
+    },
+    {
+      "id": "ob-6",
+      "kodeObat": "PO-006",
+      "nama": "Neurobion Forte",
+      "produsen": "Merck",
+      "jumlah": 80,
+      "satuan": "Tablet",
+      "rakPenyimpanan": "Rak E-1 (Vitamin)",
+      "tanggalExpired": "2029-01-10",
+      "deskripsi": "Vitamin neurotropik B1, B6, B12 untuk saraf.",
+      "createdAt": "2026-03-01T08:00:00Z",
+      "updatedAt": "2026-03-01T08:00:00Z"
+    },
+    {
+      "id": "ob-7",
+      "kodeObat": "PO-007",
+      "nama": "Betadine Solution 15ml",
+      "produsen": "Mundipharma",
+      "jumlah": 45,
+      "satuan": "Botol",
+      "rakPenyimpanan": "Rak F-3 (Antiseptik)",
+      "tanggalExpired": "2028-09-30",
+      "deskripsi": "Larutan antiseptik luar mengandung povidone iodine.",
+      "createdAt": "2026-03-05T16:15:00Z",
+      "updatedAt": "2026-03-05T16:15:00Z"
+    },
+    {
+      "id": "ob-8",
+      "kodeObat": "PO-008",
+      "nama": "Diapet Capsule",
+      "produsen": "Soho Pharmasi",
+      "jumlah": 4,
+      "satuan": "Kapsul",
+      "rakPenyimpanan": "Rak B-4 (Obat Diare)",
+      "tanggalExpired": "2027-04-18",
+      "deskripsi": "Membantu mengurangi frekuensi buang air besar (mencret).",
+      "createdAt": "2026-03-10T13:22:00Z",
+      "updatedAt": "2026-03-10T13:22:00Z"
+    },
+    {
+      "id": "ob-t40hjd2",
+      "kodeObat": "P0001",
+      "nama": "amoxilin",
+      "produsen": "kimia farma",
+      "jumlah": 12318,
+      "satuan": "Tablet",
+      "tanggalExpired": "2027-06-01",
+      "rakPenyimpanan": "rak b3",
+      "deskripsi": "obat keras",
+      "createdAt": "2026-06-02T14:02:22.288Z",
+      "updatedAt": "2026-06-02T14:02:22.288Z"
+    }
+  ],
+  "transaksi": [
+    {
+      "id": "tr-pub4fs3",
+      "obatId": "ob-2",
+      "kodeObat": "PO-002",
+      "namaObat": "Amoxicillin 500mg",
+      "tipe": "Masuk",
+      "jumlah": 2,
+      "keterangan": "bpjs",
+      "petugas": "Apt. Naura Almira, S.Farm.",
+      "tanggal": "2026-06-02T14:15:35.887Z"
+    },
+    {
+      "id": "tr-8s1g369",
+      "obatId": "ob-2",
+      "kodeObat": "PO-002",
+      "namaObat": "Amoxicillin 500mg",
+      "tipe": "Masuk",
+      "jumlah": 3,
+      "keterangan": "rewrw",
+      "petugas": "Apt. Naura Almira, S.Farm.",
+      "tanggal": "2026-06-02T14:08:32.188Z"
+    },
+    {
+      "id": "tr-favtnfg",
+      "obatId": "ob-t40hjd2",
+      "kodeObat": "P0001",
+      "namaObat": "amoxilin",
+      "tipe": "Masuk",
+      "jumlah": 12318,
+      "keterangan": "Inventarisasi obat baru / Stok Masuk Pertama.",
+      "petugas": "Apt. Naura Almira, S.Farm.",
+      "tanggal": "2026-06-02T14:02:22.288Z"
+    },
+    {
+      "id": "tr-1",
+      "obatId": "ob-1",
+      "kodeObat": "PO-001",
+      "namaObat": "Paracetamol 500mg",
+      "tipe": "Masuk",
+      "jumlah": 100,
+      "keterangan": "Stok awal dari Distributor Kimia Farma Utama",
+      "petugas": "Budi Santoso",
+      "tanggal": "2026-05-10T09:00:00Z"
+    },
+    {
+      "id": "tr-2",
+      "obatId": "ob-2",
+      "kodeObat": "PO-002",
+      "namaObat": "Amoxicillin 500mg",
+      "tipe": "Keluar",
+      "jumlah": 10,
+      "keterangan": "Pengeluaran obat resep pasien BPJS",
+      "petugas": "Apt. Naura Almira, S.Farm.",
+      "tanggal": "2026-05-15T11:00:00Z"
+    },
+    {
+      "id": "tr-3",
+      "obatId": "ob-3",
+      "kodeObat": "PO-003",
+      "namaObat": "Sanmol Syrup 60ml",
+      "tipe": "Masuk",
+      "jumlah": 25,
+      "keterangan": "Pembelian barang baru lewat PBF Sanbe",
+      "petugas": "Budi Santoso",
+      "tanggal": "2026-05-20T10:15:00Z"
+    },
+    {
+      "id": "tr-4",
+      "obatId": "ob-4",
+      "kodeObat": "PO-004",
+      "namaObat": "OBH Combi Batuk Berdahak",
+      "tipe": "Keluar",
+      "jumlah": 5,
+      "keterangan": "Penjualan bebas ke Apotek Mitra Utama",
+      "petugas": "Apt. Naura Almira, S.Farm.",
+      "tanggal": "2026-05-28T15:30:00Z"
+    }
+  ]
+}
