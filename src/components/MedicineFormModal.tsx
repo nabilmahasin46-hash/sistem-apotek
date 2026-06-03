@@ -56,6 +56,27 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
     }
     setErrorMsg(null);
   }, [editingMedicine, isOpen]);
+ // Dynamically set default description and transaction type when stock quantity changes
+  useEffect(() => {
+    if (editingMedicine && isOpen) {
+      const diff = jumlah - editingMedicine.jumlah;
+      if (diff < 0) {
+        setTipeKustom("Keluar");
+        if (!keteranganKustom || keteranganKustom === "Restock" || keteranganKustom === "Diambil") {
+          setKeteranganKustom("Diambil");
+        }
+      } else if (diff > 0) {
+        setTipeKustom("Masuk");
+        if (!keteranganKustom || keteranganKustom === "Diambil" || keteranganKustom === "Restock") {
+          setKeteranganKustom("Restock");
+        }
+      } else {
+         setTipeKustom("");
+        setKeteranganKustom("");
+      }
+        }
+  }, [jumlah, editingMedicine, isOpen]);
+
 
   if (!isOpen) return null;
 

@@ -22,7 +22,7 @@ import AlertBannerList from "./components/AlertBannerList";
 import MedicineTable from "./components/MedicineTable";
 import MedicineFormModal from "./components/MedicineFormModal";
 import TransactionLogs from "./components/TransactionLogs";
-import ArchitectureGuide from "./components/ArchitectureGuide";
+
 import { formatDate, formatNumber } from "./utils/helpers";
 
 export default function App() {
@@ -31,7 +31,7 @@ export default function App() {
   const [token, setToken] = useState<string | null>(null);
   
   // Navigation
-  const [activeTab, setActiveTab] = useState<"dashboard" | "obat" | "logs" | "architecture">("dashboard");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "obat" | "logs">("dashboard");
   
   // Data State
   const [medicines, setMedicines] = useState<Obat[]>([]);
@@ -247,7 +247,7 @@ export default function App() {
                 <span>Log Transaksi</span>
               </button>
 
-              {/* Tab: Docs */}
+              {/* Tab: Docs 
               <button
                 onClick={() => { setActiveTab("architecture"); setFocusQuery(""); }}
                 className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-1.5 transition cursor-pointer ${
@@ -256,7 +256,7 @@ export default function App() {
               >
                 <BookOpen className="h-4 w-4" />
                 <span>Panduan & Arsitektur</span>
-              </button>
+              </button> */}
             </nav>
 
             {/* Operator Badge and Logout */}
@@ -312,13 +312,7 @@ export default function App() {
           <span>Logs</span>
         </button>
 
-        <button
-          onClick={() => { setActiveTab("architecture"); setFocusQuery(""); }}
-          className={`flex flex-col items-center text-[10px] space-y-1 font-bold ${activeTab === "architecture" ? "text-sky-400" : "text-slate-400"}`}
-        >
-          <BookOpen className="h-4.5 w-4.5" />
-          <span>Panduan</span>
-        </button>
+      
       </div>
 
       {/* 2. Main Content View Area */}
@@ -532,7 +526,7 @@ export default function App() {
           </div>
         )}
 
-        {/* TAB TARGET 4: CODE ARCHITECTURE & BOILERPLATE VIEW */}
+        {/* TAB TARGET 4: CODE ARCHITECTURE & BOILERPLATE VIEW 
         {activeTab === "architecture" && (
           <div className="space-y-4 animate-fade-in duration-200">
             <div>
@@ -542,7 +536,7 @@ export default function App() {
 
             <ArchitectureGuide />
           </div>
-        )}
+        )} */}
 
       </main>
 
