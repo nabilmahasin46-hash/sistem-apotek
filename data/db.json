@@ -3,19 +3,19 @@
     {
       "id": "u1",
       "username": "apoteker",
-      "nama": "Apt. Naura Almira, S.Farm.",
+      "nama": "apoteker.",
       "role": "Apoteker"
     },
     {
       "id": "u2",
       "username": "gudang",
-      "nama": "Budi Santoso",
+      "nama": "orang gudang",
       "role": "Petugas Gudang"
     },
     {
       "id": "u3",
       "username": "admin",
-      "nama": "Drs. Hendrawan, M.Si.",
+      "nama": "Administrator",
       "role": "Admin"
     }
   ],
@@ -147,7 +147,7 @@
       "tipe": "Keluar",
       "jumlah": 1,
       "keterangan": "Diambil",
-      "petugas": "Apt. Naura Almira, S.Farm.",
+      "petugas": "Apoteker",
       "tanggal": "2026-06-03T11:18:03.408Z"
     },
     {
@@ -158,7 +158,7 @@
       "tipe": "Keluar",
       "jumlah": 1,
       "keterangan": "Diambil",
-      "petugas": "Apt. Naura Almira, S.Farm.",
+      "petugas": "Apoteker",
       "tanggal": "2026-06-03T11:17:19.995Z"
     },
     {
@@ -169,7 +169,7 @@
       "tipe": "Masuk",
       "jumlah": 2,
       "keterangan": "bpjs",
-      "petugas": "Apt. Naura Almira, S.Farm.",
+      "petugas": "Apoteker",
       "tanggal": "2026-06-02T14:15:35.887Z"
     },
     {
@@ -180,7 +180,7 @@
       "tipe": "Masuk",
       "jumlah": 3,
       "keterangan": "rewrw",
-      "petugas": "Apt. Naura Almira, S.Farm.",
+      "petugas": "Apoteker",
       "tanggal": "2026-06-02T14:08:32.188Z"
     },
     {
@@ -191,7 +191,7 @@
       "tipe": "Masuk",
       "jumlah": 12318,
       "keterangan": "Inventarisasi obat baru / Stok Masuk Pertama.",
-      "petugas": "Apt. Naura Almira, S.Farm.",
+      "petugas": "Apoteker",
       "tanggal": "2026-06-02T14:02:22.288Z"
     },
     {
@@ -202,7 +202,7 @@
       "tipe": "Masuk",
       "jumlah": 100,
       "keterangan": "Stok awal dari Distributor Kimia Farma Utama",
-      "petugas": "Budi Santoso",
+      "petugas": "orang gudang",
       "tanggal": "2026-05-10T09:00:00Z"
     },
     {
@@ -213,7 +213,7 @@
       "tipe": "Keluar",
       "jumlah": 10,
       "keterangan": "Pengeluaran obat resep pasien BPJS",
-      "petugas": "Apt. Naura Almira, S.Farm.",
+      "petugas": "Apoteker",
       "tanggal": "2026-05-15T11:00:00Z"
     },
     {
@@ -224,7 +224,7 @@
       "tipe": "Masuk",
       "jumlah": 25,
       "keterangan": "Pembelian barang baru lewat PBF Sanbe",
-      "petugas": "Budi Santoso",
+      "petugas": "orang gudang",
       "tanggal": "2026-05-20T10:15:00Z"
     },
     {
@@ -235,7 +235,7 @@
       "tipe": "Keluar",
       "jumlah": 5,
       "keterangan": "Penjualan bebas ke Apotek Mitra Utama",
-      "petugas": "Apt. Naura Almira, S.Farm.",
+      "petugas": "Apoteker",
       "tanggal": "2026-05-28T15:30:00Z"
     }
   ]

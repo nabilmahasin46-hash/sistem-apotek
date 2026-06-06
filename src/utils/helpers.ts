@@ -144,9 +144,9 @@ CREATE INDEX idx_transaksi_tanggal ON transaksi_obat(tanggal);
 -- Penambahan Data Awal (Seeder) Pengguna default (Password terenkripsi asli)
 -- Untuk login demo: bcrypt('rahasiagudang123') = '$2b$10$vY3P8/E3j...'
 INSERT INTO users (id, username, password, nama, role) VALUES 
-('u1', 'apoteker', '$2b$10$7v59nF56Cis.BfW4Fz7Rve1T21v/Kj3A8d9D98gG9K72oZqU/Z6R2', 'Apt. Naura Almira, S.Farm.', 'Apoteker'),
-('u2', 'gudang', '$2b$10$7v59nF56Cis.BfW4Fz7Rve1T21v/Kj3A8d9D98gG9K72oZqU/Z6R2', 'Budi Santoso', 'Petugas Gudang'),
-('u3', 'admin', '$2b$10$7v59nF56Cis.BfW4Fz7Rve1T21v/Kj3A8d9D98gG9K72oZqU/Z6R2', 'Drs. Hendrawan, M.Si.', 'Admin');
+('u1', 'apoteker', '$2b$10$7v59nF56Cis.BfW4Fz7Rve1T21v/Kj3A8d9D98gG9K72oZqU/Z6R2', 'apoteker.', 'Apoteker'),
+('u2', 'gudang', '$2b$10$7v59nF56Cis.BfW4Fz7Rve1T21v/Kj3A8d9D98gG9K72oZqU/Z6R2', 'orang gudang', 'Petugas Gudang'),
+('u3', 'admin', '$2b$10$7v59nF56Cis.BfW4Fz7Rve1T21v/Kj3A8d9D98gG9K72oZqU/Z6R2', 'Administrator', 'Admin');
 `;
 
 export const controllerBoilerplate = `/**

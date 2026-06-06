@@ -69,7 +69,7 @@ app.post("/api/auth/login", (req, res) => {
     const adminUser = db.users.find(u => u.username === "admin") || {
       id: "u3",
       username: "admin",
-      nama: "Drs. Hendrawan, M.Si.",
+      nama: "Administrator",
       role: "Admin" as const
     };
     return res.json({
@@ -83,7 +83,7 @@ app.post("/api/auth/login", (req, res) => {
     const apoUser = db.users.find(u => u.username === "apoteker") || {
       id: "u1",
       username: "apoteker",
-      nama: "Apt. Naura Almira, S.Farm.",
+      nama: "apoteker",
       role: "Apoteker" as const
     };
     return res.json({
@@ -97,7 +97,7 @@ app.post("/api/auth/login", (req, res) => {
     const gudUser = db.users.find(u => u.username === "gudang") || {
       id: "u2",
       username: "gudang",
-      nama: "Budi Santoso",
+      nama: "orang gudang",
       role: "Petugas Gudang" as const
     };
     return res.json({
