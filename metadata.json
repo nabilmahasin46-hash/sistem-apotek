@@ -1,6 +1,6 @@
 {
-  "name": "Sistem Informasi Stok Obat",
-  "description": "Sistem Informasi Penyimpanan dan Stok Obat Apotek dengan notifikasi stok menipis, log transaksi, dan panduan arsitektur lengkap.",
+  "name": "SIPSO: Sistem Informasi K3 & Stok Obat",
+  "description": "Sistem Informasi Penyimpanan dan Stok Obat berbasis K3 dengan notifikasi real-time, penataan lokasi rak farmasi, dan log audit transaksi otomatis.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

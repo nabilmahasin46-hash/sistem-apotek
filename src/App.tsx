@@ -14,7 +14,8 @@ import {
   TrendingDown, 
   Layers,
   HeartPulse,
-  Info
+  Info,
+  ShoppingBag
 } from "lucide-react";
 import { User, Obat, TransaksiObat, DashboardStats } from "./types";
 import Login from "./components/Login";
@@ -22,7 +23,7 @@ import AlertBannerList from "./components/AlertBannerList";
 import MedicineTable from "./components/MedicineTable";
 import MedicineFormModal from "./components/MedicineFormModal";
 import TransactionLogs from "./components/TransactionLogs";
-
+import ApotekKasir from "./components/ApotekKasir";
 import { formatDate, formatNumber } from "./utils/helpers";
 
 export default function App() {
@@ -31,7 +32,7 @@ export default function App() {
   const [token, setToken] = useState<string | null>(null);
   
   // Navigation
-  const [activeTab, setActiveTab] = useState<"dashboard" | "obat" | "logs">("dashboard");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "obat" | "logs" | "jualan">("dashboard");
   
   // Data State
   const [medicines, setMedicines] = useState<Obat[]>([]);
@@ -199,14 +200,20 @@ export default function App() {
             
             {/* Title Identity */}
             <div className="flex items-center space-x-3">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-sky-400 to-violet-500 flex items-center justify-center text-white shadow-md shadow-sky-500/20">
-                <Pill className="h-5 w-5" />
+              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-md shadow-emerald-500/5 relative overflow-hidden">
+                <svg className="h-7.5 w-7.5 text-emerald-400" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* 11-toothed official K3 gear-like circle */}
+                  <circle cx="50" cy="50" r="38" stroke="currentColor" strokeWidth="4.5" strokeDasharray="16 5" className="origin-center" style={{ animation: 'spin 25s linear infinite' }} />
+                  <circle cx="50" cy="50" r="28" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="1.5" />
+                  {/* Clean medical safety green cross */}
+                  <path d="M50 38V62M38 50H62" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
+                </svg>
               </div>
               <div>
                 <h1 className="text-sm font-extrabold tracking-tight text-white leading-none">
                   Apotek Sejahtera
                 </h1>
-                <p className="text-[9px] text-sky-400 font-bold tracking-widest uppercase mt-1.5 opacity-90">
+                <p className="text-[9px] text-emerald-400 font-bold tracking-widest uppercase mt-1.5 opacity-90">
                   Sistem Informasi Inventaris & Stok Obat
                 </p>
               </div>
@@ -218,7 +225,7 @@ export default function App() {
               <button
                 onClick={() => { setActiveTab("dashboard"); setFocusQuery(""); }}
                 className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-1.5 transition cursor-pointer ${
-                  activeTab === "dashboard" ? "bg-white/10 text-sky-400 border border-white/10" : "text-slate-300 hover:bg-white/5 hover:text-white border border-transparent"
+                  activeTab === "dashboard" ? "bg-white/10 text-emerald-400 border border-white/10" : "text-slate-300 hover:bg-white/5 hover:text-white border border-transparent"
                 }`}
               >
                 <LayoutDashboard className="h-4 w-4" />
@@ -229,7 +236,7 @@ export default function App() {
               <button
                 onClick={() => { setActiveTab("obat"); setFocusQuery(""); }}
                 className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-1.5 transition cursor-pointer ${
-                  activeTab === "obat" ? "bg-white/10 text-sky-400 border border-white/10" : "text-slate-300 hover:bg-white/5 hover:text-white border border-transparent"
+                  activeTab === "obat" ? "bg-white/10 text-emerald-400 border border-white/10" : "text-slate-300 hover:bg-white/5 hover:text-white border border-transparent"
                 }`}
               >
                 <Layers className="h-4 w-4" />
@@ -240,23 +247,25 @@ export default function App() {
               <button
                 onClick={() => { setActiveTab("logs"); setFocusQuery(""); }}
                 className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-1.5 transition cursor-pointer ${
-                  activeTab === "logs" ? "bg-white/10 text-sky-400 border border-white/10" : "text-slate-300 hover:bg-white/5 hover:text-white border border-transparent"
+                  activeTab === "logs" ? "bg-white/10 text-emerald-400 border border-white/10" : "text-slate-300 hover:bg-white/5 hover:text-white border border-transparent"
                 }`}
               >
                 <History className="h-4 w-4" />
                 <span>Log Transaksi</span>
               </button>
 
-              {/* Tab: Docs 
-              <button
-                onClick={() => { setActiveTab("architecture"); setFocusQuery(""); }}
-                className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-1.5 transition cursor-pointer ${
-                  activeTab === "architecture" ? "bg-white/10 text-sky-400 border border-white/10" : "text-slate-300 hover:bg-white/5 hover:text-white border border-transparent"
-                }`}
-              >
-                <BookOpen className="h-4 w-4" />
-                <span>Panduan & Arsitektur</span>
-              </button> */}
+              {/* Tab: Penjualan / Jualan (Apoteker/Admin Only) */}
+              {(currentUser.role === "Apoteker" || currentUser.role === "Admin") && (
+                <button
+                  onClick={() => { setActiveTab("jualan"); setFocusQuery(""); }}
+                  className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-1.5 transition cursor-pointer ${
+                    activeTab === "jualan" ? "bg-white/10 text-emerald-400 border border-white/10" : "text-slate-300 hover:bg-white/5 hover:text-white border border-transparent"
+                  }`}
+                >
+                  <ShoppingBag className="h-4 w-4" />
+                  <span>Kasir Penjualan</span>
+                </button>
+              )}
             </nav>
 
             {/* Operator Badge and Logout */}
@@ -267,7 +276,7 @@ export default function App() {
                 </div>
                 <div className="text-left leading-none">
                   <p className="text-xs font-bold text-white">{currentUser.nama}</p>
-                  <span className="text-[9px] bg-sky-500/20 text-sky-300 font-bold px-2 py-0.5 rounded-full inline-block mt-1 border border-sky-400/20">
+                  <span className="text-[9px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-full inline-block mt-1 border border-emerald-400/20">
                     {currentUser.role}
                   </span>
                 </div>
@@ -290,7 +299,7 @@ export default function App() {
       <div className="md:hidden glass border-b border-white/5 py-2.5 px-4 flex items-center justify-around text-slate-300 shadow-lg">
         <button
           onClick={() => { setActiveTab("dashboard"); setFocusQuery(""); }}
-          className={`flex flex-col items-center text-[10px] space-y-1 font-bold ${activeTab === "dashboard" ? "text-sky-400" : "text-slate-400"}`}
+          className={`flex flex-col items-center text-[10px] space-y-1 font-bold ${activeTab === "dashboard" ? "text-emerald-400" : "text-slate-400"}`}
         >
           <LayoutDashboard className="h-4.5 w-4.5" />
           <span>Statistik</span>
@@ -298,7 +307,7 @@ export default function App() {
 
         <button
           onClick={() => { setActiveTab("obat"); setFocusQuery(""); }}
-          className={`flex flex-col items-center text-[10px] space-y-1 font-bold ${activeTab === "obat" ? "text-sky-400" : "text-slate-400"}`}
+          className={`flex flex-col items-center text-[10px] space-y-1 font-bold ${activeTab === "obat" ? "text-emerald-400" : "text-slate-400"}`}
         >
           <Layers className="h-4.5 w-4.5" />
           <span>Kelola Obat</span>
@@ -306,13 +315,21 @@ export default function App() {
 
         <button
           onClick={() => { setActiveTab("logs"); setFocusQuery(""); }}
-          className={`flex flex-col items-center text-[10px] space-y-1 font-bold ${activeTab === "logs" ? "text-sky-400" : "text-slate-400"}`}
+          className={`flex flex-col items-center text-[10px] space-y-1 font-bold ${activeTab === "logs" ? "text-emerald-400" : "text-slate-400"}`}
         >
           <History className="h-4.5 w-4.5" />
           <span>Logs</span>
         </button>
 
-      
+        {(currentUser.role === "Apoteker" || currentUser.role === "Admin") && (
+          <button
+            onClick={() => { setActiveTab("jualan"); setFocusQuery(""); }}
+            className={`flex flex-col items-center text-[10px] space-y-1 font-bold ${activeTab === "jualan" ? "text-emerald-400" : "text-slate-400"}`}
+          >
+            <ShoppingBag className="h-4.5 w-4.5" />
+            <span>Kasir</span>
+          </button>
+        )}
       </div>
 
       {/* 2. Main Content View Area */}
@@ -326,11 +343,11 @@ export default function App() {
               {currentUser.nama}
             </h2>
             <p className="text-xs text-slate-300 mt-1.5">
-              Sebagai <strong className="text-sky-300 font-bold">{currentUser.role}</strong>, Anda memiliki otorisasi penuh untuk mengelola pendaftaran dan restock inventaris apotik.
+              Sebagai <strong className="text-emerald-300 font-bold">{currentUser.role}</strong>, Anda memiliki otorisasi penuh untuk mengelola pendaftaran dan restock inventaris apotik.
             </p>
           </div>
           <div className="shrink-0 flex items-center space-x-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs font-medium text-slate-300 font-sans">
-            <Calendar className="h-4.5 w-4.5 text-sky-400" />
+            <Calendar className="h-4.5 w-4.5 text-emerald-400" />
             <div className="flex flex-col">
               <span className="text-slate-400 text-[9px] uppercase font-bold tracking-wider">Waktu Sistem (GMT+0)</span>
               <strong className="text-white mt-0.5">{formatDate("2026-06-02T12:53:18Z")}</strong>
@@ -357,12 +374,12 @@ export default function App() {
               <div className="glass p-4 rounded-xl transition hover:-translate-y-0.5 duration-200">
                 <div className="flex items-center justify-between text-slate-400 mb-2">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">Total Jenis Obat</span>
-                  <Pill className="h-5 w-5 text-sky-400" />
+                  <Pill className="h-5 w-5 text-emerald-400" />
                 </div>
                 <p className="text-2xl font-black text-white leading-none mt-1">
                   {formatNumber(stats.totalObat)}
                 </p>
-                <span className="text-[10px] text-sky-300 font-semibold inline-block mt-2">
+                <span className="text-[10px] text-emerald-300 font-semibold inline-block mt-2">
                   Terdaftar di gudang
                 </span>
               </div>
@@ -378,7 +395,7 @@ export default function App() {
                 </p>
                 <button 
                   onClick={() => handleFocusMedicine("")} 
-                  className="text-[10px] text-sky-400 font-bold hover:underline cursor-pointer block mt-2 text-left"
+                  className="text-[10px] text-emerald-400 font-bold hover:underline cursor-pointer block mt-2 text-left"
                 >
                   Segera pesan restock
                 </button>
@@ -448,7 +465,7 @@ export default function App() {
                 </div>
                 <button
                   onClick={() => { setActiveTab("logs"); }}
-                  className="text-xs font-bold text-sky-400 hover:text-sky-300 hover:underline cursor-pointer"
+                  className="text-xs font-bold text-emerald-400 hover:text-emerald-300 hover:underline cursor-pointer"
                 >
                   Lihat Semua Log →
                 </button>
@@ -483,8 +500,8 @@ export default function App() {
             </div>
 
             {/* 4. Help block */}
-            <div className="glass border-l-4 border-sky-400 p-4 rounded-xl flex items-start space-x-3 text-slate-200 text-xs">
-              <Info className="h-5 w-5 text-sky-400 shrink-0 mt-0.5" />
+            <div className="glass border-l-4 border-emerald-400 p-4 rounded-xl flex items-start space-x-3 text-slate-200 text-xs">
+              <Info className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
               <div>
                 <strong>Pengingat Apoteker:</strong> Sesuai regulasi BPOM dan Kemenkes RI, pastikan obat golongan antibiotik (misal: Amoxicillin) disimpan pada rak kustom khusus yang kering, dan obat sirup sisa dianalisa secara berkala sebelum mendekati 1 bulan dari batas kedaluwarsa.
               </div>
@@ -526,17 +543,22 @@ export default function App() {
           </div>
         )}
 
-        {/* TAB TARGET 4: CODE ARCHITECTURE & BOILERPLATE VIEW 
-        {activeTab === "architecture" && (
+        {/* TAB TARGET 4: KASIR PENJUALAN APOTEK (Apoteker & Admin) */}
+        {activeTab === "jualan" && (currentUser.role === "Apoteker" || currentUser.role === "Admin") && (
           <div className="space-y-4 animate-fade-in duration-200">
             <div>
-              <h2 className="text-lg font-bold text-white">Dokumentasi Skema SQL & Blueprint Controller</h2>
-              <p className="text-xs text-slate-400">Salin skema migrasi tabel RDBMS PostgreSQL/MySQL dan script controller Express server untuk keperluan deployment server Anda.</p>
+              <h2 className="text-lg font-bold text-white">Kasir Pelayanan & Penjualan Obat</h2>
+              <p className="text-xs text-slate-400">Pilih obat dari baris di bawah, isikan jumlah pembelian dan identitas pasien untuk memotong stok real-time.</p>
             </div>
 
-            <ArchitectureGuide />
+            <ApotekKasir
+              medicines={medicines}
+              currentUser={currentUser}
+              onTransactionSuccess={loadAllData}
+            />
           </div>
-        )} */}
+        )}
+
 
       </main>
 
@@ -553,7 +575,7 @@ export default function App() {
       <footer className="text-slate-400 text-xs text-center border-t border-white/5 py-6 mt-12 font-sans relative">
         <p className="font-semibold text-slate-300">Sistem Informasi Penyimpanan dan Stok Obat (SIPSO)</p>
         <p className="text-[10px] text-slate-500 mt-1">
-          
+          Apotek Sejahtera Dev Environment • Hak Cipta © 2026 • Dirakit Sesuai Regulasi Manajemen Farmasi
         </p>
       </footer>
 

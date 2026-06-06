@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, Filter, Edit, Trash2, PlusCircle, Calendar, MapPin, RefreshCw } from "lucide-react";
+import { Search, Filter, Edit, Trash2, PlusCircle, Calendar, MapPin, RefreshCw, X } from "lucide-react";
 import { Obat, User } from "../types";
 import { formatDate, getDaysToExpiry, formatNumber } from "../utils/helpers";
 
@@ -73,17 +73,26 @@ export default function MedicineTable({
       <div className="glass p-4 rounded-xl shadow-2xl flex flex-col md:flex-row gap-3 items-center justify-between">
         
         {/* Search */}
-        <div className="relative w-full md:w-80">
+        <div className="relative w-full md:w-80 group">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-            <Search className="h-4 w-4 text-slate-400" />
+            <Search className="h-4 w-4 text-slate-400 group-focus-within:text-emerald-400 transition-colors" />
           </span>
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full text-xs pl-9 rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-white placeholder-slate-400 focus:bg-white/10 transition"
-            placeholder="Cari nama, kode obat, produsen..."
+            className="w-full text-xs pl-9 pr-10 rounded-xl border border-white/10 bg-white/5 py-2.5 px-3 text-white placeholder-slate-400 focus:bg-white/10 focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all duration-200"
+            placeholder="Cari Nama atau Kode Obat..."
           />
+          {searchTerm && (
+            <button
+              onClick={() => setSearchTerm("")}
+              className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-white transition-colors cursor-pointer"
+              title="Bersihkan Pencarian"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
         </div>
 
         {/* Categories / Unit Filter */}
@@ -95,7 +104,7 @@ export default function MedicineTable({
             <select
               value={unitFilter}
               onChange={(e) => setUnitFilter(e.target.value)}
-              className="rounded-xl border border-white/10 bg-slate-900 text-xs py-1.5 px-3 text-slate-200 focus:ring-1 focus:ring-sky-500 cursor-pointer"
+              className="rounded-xl border border-white/10 bg-slate-900 text-xs py-1.5 px-3 text-slate-200 focus:ring-1 focus:ring-emerald-500 cursor-pointer"
             >
               <option value="">Semua Satuan</option>
               <option value="Tablet">Tablet</option>
@@ -155,7 +164,7 @@ export default function MedicineTable({
 
           <button
             onClick={onAddClick}
-            className="bg-sky-400 text-slate-950 font-extrabold hover:bg-sky-300 px-3.5 py-2 text-xs rounded-xl flex items-center space-x-1.5 transition cursor-pointer shadow-lg shadow-sky-500/10"
+            className="bg-emerald-400 text-slate-950 font-extrabold hover:bg-emerald-300 px-3.5 py-2 text-xs rounded-xl flex items-center space-x-1.5 transition cursor-pointer shadow-lg shadow-emerald-500/10"
           >
             <PlusCircle className="h-4 w-4 text-slate-950" />
             <span>Tambah Obat</span>
@@ -201,7 +210,7 @@ export default function MedicineTable({
                       }`}
                     >
                       {/* Kode */}
-                      <td className="px-6 py-4 font-mono font-bold text-sky-300 text-xs">
+                      <td className="px-6 py-4 font-mono font-bold text-emerald-300 text-xs">
                         {med.kodeObat}
                       </td>
 
@@ -266,8 +275,8 @@ export default function MedicineTable({
 
                       {/* Rak Penyimpanan */}
                       <td className="px-6 py-4 font-sans">
-                        <span className="inline-flex items-center space-x-1.5 bg-white/5 text-sky-200 px-2.5 py-1 rounded-xl text-[10px] font-bold border border-white/5">
-                          <MapPin className="h-3 w-3 text-sky-400" />
+                        <span className="inline-flex items-center space-x-1.5 bg-white/5 text-emerald-250 px-2.5 py-1 rounded-xl text-[10px] font-bold border border-white/5">
+                          <MapPin className="h-3 w-3 text-emerald-400" />
                           <span>{med.rakPenyimpanan || "Belum ditentukan"}</span>
                         </span>
                       </td>
@@ -279,7 +288,7 @@ export default function MedicineTable({
                           {/* Edit / Restock button */}
                           <button
                             onClick={() => onEdit(med)}
-                            className="p-1 px-3 rounded-lg border border-white/10 text-sky-300 hover:text-slate-950 hover:bg-sky-300 hover:border-sky-300 text-xs font-bold flex items-center space-x-1 transition cursor-pointer"
+                            className="p-1 px-3 rounded-lg border border-white/10 text-emerald-300 hover:text-slate-950 hover:bg-emerald-400 hover:border-emerald-400 text-xs font-bold flex items-center space-x-1 transition cursor-pointer"
                             title="Edit atau Restock obat"
                           >
                             <Edit className="h-3.5 w-3.5" />

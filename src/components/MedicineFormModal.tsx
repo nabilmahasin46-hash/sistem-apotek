@@ -56,7 +56,8 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
     }
     setErrorMsg(null);
   }, [editingMedicine, isOpen]);
- // Dynamically set default description and transaction type when stock quantity changes
+
+  // Dynamically set default description and transaction type when stock quantity changes
   useEffect(() => {
     if (editingMedicine && isOpen) {
       const diff = jumlah - editingMedicine.jumlah;
@@ -71,12 +72,11 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
           setKeteranganKustom("Restock");
         }
       } else {
-         setTipeKustom("");
+        setTipeKustom("");
         setKeteranganKustom("");
       }
-        }
+    }
   }, [jumlah, editingMedicine, isOpen]);
-
 
   if (!isOpen) return null;
 
@@ -88,7 +88,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
     if (!kodeObat.trim()) return setErrorMsg("Kode Obat wajib diisi!");
     if (!nama.trim()) return setErrorMsg("Nama Obat wajib diisi!");
     if (!produsen.trim()) return setErrorMsg("Produsen wajib diisi!");
-    if (jumlah < 1) return setErrorMsg("Jumlah stok tidak boleh negatif!");
+    if (jumlah < 0) return setErrorMsg("Jumlah stok tidak boleh negatif!");
     if (!tanggalExpired) return setErrorMsg("Tanggal Kedaluwarsa wajib dipilih!");
 
     setSubmitting(true);
@@ -161,7 +161,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                   value={kodeObat}
                   disabled={editingMedicine !== null} // Lock code in edits as standard practice
                   onChange={(e) => setKodeObat(e.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-sky-400 focus:outline-none transition disabled:opacity-40"
+                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-emerald-400 focus:outline-none transition disabled:opacity-40"
                   placeholder="Kode Obat, e.g. PO-001"
                 />
               </div>
@@ -176,7 +176,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                   required
                   value={nama}
                   onChange={(e) => setNama(e.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-sky-400 focus:outline-none transition"
+                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-emerald-400 focus:outline-none transition"
                   placeholder="Nama Obat, e.g. Amoxicillin 500mg"
                 />
               </div>
@@ -191,7 +191,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                   required
                   value={produsen}
                   onChange={(e) => setProdusen(e.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-sky-400 focus:outline-none transition"
+                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-emerald-400 focus:outline-none transition"
                   placeholder="Produsen, e.g. Kalbe Farma"
                 />
               </div>
@@ -204,7 +204,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                 <select
                   value={satuan}
                   onChange={(e) => setSatuan(e.target.value as any)}
-                  className="w-full rounded-xl border border-white/10 bg-slate-900 py-2 px-3 text-sm text-slate-200 focus:ring-1 focus:ring-sky-400 focus:outline-none transition cursor-pointer"
+                  className="w-full rounded-xl border border-white/10 bg-slate-900 py-2 px-3 text-sm text-slate-200 focus:ring-1 focus:ring-emerald-400 focus:outline-none transition cursor-pointer"
                 >
                   <option value="Tablet">Tablet</option>
                   <option value="Botol">Botol</option>
@@ -223,10 +223,10 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                 <input
                   type="number"
                   required
-                  min=""
+                  min="0"
                   value={jumlah}
                   onChange={(e) => setJumlah(Number(e.target.value))}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white focus:bg-white/10 focus:ring-1 focus:ring-sky-400 focus:outline-none transition font-semibold"
+                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white focus:bg-white/10 focus:ring-1 focus:ring-emerald-400 focus:outline-none transition font-semibold"
                 />
               </div>
 
@@ -240,7 +240,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                   required
                   value={tanggalExpired}
                   onChange={(e) => setTanggalExpired(e.target.value)}
-                  className="w-full font-semibold rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white focus:bg-white/10 focus:ring-1 focus:ring-sky-400 focus:outline-none transition"
+                  className="w-full font-semibold rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white focus:bg-white/10 focus:ring-1 focus:ring-emerald-400 focus:outline-none transition"
                 />
               </div>
 
@@ -253,7 +253,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                   type="text"
                   value={rakPenyimpanan}
                   onChange={(e) => setRakPenyimpanan(e.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-sky-400 focus:outline-none transition"
+                  className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-emerald-400 focus:outline-none transition"
                   placeholder="e.g. Rak B-2 (Antibiotik)"
                 />
               </div>
@@ -268,16 +268,16 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                 value={deskripsi}
                 rows={2}
                 onChange={(e) => setDeskripsi(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-sky-400 focus:outline-none transition resize-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-sm text-white placeholder-slate-500 focus:bg-white/10 focus:ring-1 focus:ring-emerald-400 focus:outline-none transition resize-none"
                 placeholder="Deskripsi singkat obat"
               />
             </div>
 
             {/* If Stock Changes: Demand a Transaction Memo */}
             {hasStockChanged && (
-              <div className="bg-sky-500/10 p-4 rounded-xl border border-sky-500/25 space-y-3 text-sky-200">
-                <div className="flex items-start space-x-2 text-sky-200 text-xs">
-                  <HelpCircle className="h-4.5 w-4.5 text-sky-400 shrink-0 mt-0.5" />
+              <div className="bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/25 space-y-3 text-emerald-200">
+                <div className="flex items-start space-x-2 text-emerald-200 text-xs">
+                  <HelpCircle className="h-4.5 w-4.5 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold">Log Transaksi Otomatis Terdeteksi:</span> Jumlah stok obat disunting dari{" "}
                     <strong className="text-white">
@@ -293,7 +293,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
                   <div>
-                    <label className="block text-[9px] uppercase tracking-wide font-bold text-sky-300 mb-1">
+                    <label className="block text-[9px] uppercase tracking-wide font-bold text-emerald-300 mb-1">
                       Kategori Log Transaksi
                     </label>
                     <select
@@ -308,7 +308,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
                   </div>
 
                   <div>
-                    <label className="block text-[9px] uppercase tracking-wide font-bold text-sky-300 mb-1">
+                    <label className="block text-[9px] uppercase tracking-wide font-bold text-emerald-300 mb-1">
                       Keterangan / Memo Log <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -338,7 +338,7 @@ export default function MedicineFormModal({ isOpen, onClose, onSubmit, editingMe
             <button
               type="submit"
               disabled={submitting}
-              className="px-4 py-2 text-xs font-extrabold text-slate-950 bg-sky-400 hover:bg-sky-300 rounded-xl flex items-center space-x-1.5 transition cursor-pointer disabled:opacity-55 shadow-lg shadow-sky-500/15"
+              className="px-4 py-2 text-xs font-extrabold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl flex items-center space-x-1.5 transition cursor-pointer disabled:opacity-55 shadow-lg shadow-emerald-500/15"
             >
               <Save className="h-4 w-4 text-slate-950" />
               <span>{submitting ? "Menyimpan..." : "Simpan Data"}</span>

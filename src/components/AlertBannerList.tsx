@@ -55,7 +55,7 @@ export default function AlertBannerList({ medicines, onFocusMedicine }: AlertBan
                   </span>
                   <button
                     onClick={() => onFocusMedicine(o.kodeObat)}
-                    className="text-sky-300 hover:text-sky-200 font-bold flex items-center space-x-1 cursor-pointer hover:underline text-[11px]"
+                    className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center space-x-1 cursor-pointer hover:underline text-[11px]"
                     title="Cari obat di tabel"
                   >
                     <span>Cari</span>
@@ -104,7 +104,7 @@ export default function AlertBannerList({ medicines, onFocusMedicine }: AlertBan
                     )}
                     <button
                       onClick={() => onFocusMedicine(o.kodeObat)}
-                      className="text-sky-300 hover:text-sky-200 font-bold flex items-center space-x-1 cursor-pointer hover:underline text-[11px]"
+                      className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center space-x-1 cursor-pointer hover:underline text-[11px]"
                     >
                       <span>Cari</span>
                       <ArrowRight className="h-3.5 w-3.5" />

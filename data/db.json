@@ -38,26 +38,26 @@
       "kodeObat": "PO-002",
       "nama": "Amoxicillin 500mg",
       "produsen": "Kalbe Farma",
-      "jumlah": 2,
+      "jumlah": 1,
       "satuan": "Tablet",
       "tanggalExpired": "2027-11-20",
       "rakPenyimpanan": "Rak B-1 (Antibiotik)",
       "deskripsi": "Antibiotik golongan penisilin untuk infeksi bakteri.",
       "createdAt": "2026-01-18T09:12:00Z",
-      "updatedAt": "2026-06-02T14:15:35.887Z"
+      "updatedAt": "2026-06-03T11:17:19.995Z"
     },
     {
       "id": "ob-3",
       "kodeObat": "PO-003",
       "nama": "Sanmol Syrup 60ml",
       "produsen": "Sanbe Farma",
-      "jumlah": 25,
+      "jumlah": 24,
       "satuan": "Botol",
       "tanggalExpired": "2026-07-15",
       "rakPenyimpanan": "Rak A-4 (Sirup Anak)",
       "deskripsi": "Paracetamol sirup untuk anak-anak.",
       "createdAt": "2026-02-05T14:20:00Z",
-      "updatedAt": "2026-02-05T14:20:00Z"
+      "updatedAt": "2026-06-03T11:18:03.408Z"
     },
     {
       "id": "ob-4",
@@ -139,6 +139,28 @@
     }
   ],
   "transaksi": [
+    {
+      "id": "tr-osi99lm",
+      "obatId": "ob-3",
+      "kodeObat": "PO-003",
+      "namaObat": "Sanmol Syrup 60ml",
+      "tipe": "Keluar",
+      "jumlah": 1,
+      "keterangan": "Diambil",
+      "petugas": "Apt. Naura Almira, S.Farm.",
+      "tanggal": "2026-06-03T11:18:03.408Z"
+    },
+    {
+      "id": "tr-3yjri8g",
+      "obatId": "ob-2",
+      "kodeObat": "PO-002",
+      "namaObat": "Amoxicillin 500mg",
+      "tipe": "Keluar",
+      "jumlah": 1,
+      "keterangan": "Diambil",
+      "petugas": "Apt. Naura Almira, S.Farm.",
+      "tanggal": "2026-06-03T11:17:19.995Z"
+    },
     {
       "id": "tr-pub4fs3",
       "obatId": "ob-2",

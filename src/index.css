@@ -9,13 +9,13 @@
 /* Frosted Glass Theme Core Styles */
 body {
   font-family: var(--font-sans);
-  background-color: #0f172a;
+  background-color: #07110e;
   color: #f1f5f9;
   min-height: 100vh;
   position: relative;
   background-image: 
-    radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.12) 0, transparent 45%),
-    radial-gradient(circle at 90% 90%, rgba(139, 92, 246, 0.12) 0, transparent 45%);
+    radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.1) 0, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(20, 184, 166, 0.08) 0, transparent 45%);
   background-attachment: fixed;
 }
 
@@ -91,6 +91,6 @@ body {
 /* Dialog input styles tailored for a premium keyboard-focusable dark UI */
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: rgba(56, 189, 248, 0.5) !important;
-  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.5) !important;
 }
